@@ -1,13 +1,16 @@
 # WeChat Linux Docker
 
-基于 Docker 的微信 Linux 版容器化解决方案，使用 noVNC 通过浏览器访问微信界面。
-后续会基于此Docker可以开发微信机器人、微信聊天记录备份等功能。
+- 基于 Docker 的微信 Linux 版容器化解决方案，使用 noVNC 通过浏览器访问微信界面。
+- 后续会基于此Docker可以开发微信机器人、微信聊天记录备份等功能。
 
 ## 快速开始
 
-### 前提条件
+直接从仓库拉取
+```hash
+docker pull risingwater/wechat-linux:latest
+```
 
-- 安装Docker
+## 镜像构建
 
 ### 克隆项目
 
@@ -22,7 +25,7 @@ cd wechat_linux
 docker build ./ -t wechat-linux:latest
 ```
 
-### 运行容器
+## 运行容器
 
 ```bash
 docker run -d -it -p 6080:6080 \
@@ -71,15 +74,3 @@ wechat_linux/
 - **桌面环境**: Fluxbox
 - **远程访问**: X11VNC + noVNC
 - **显示服务**: Xvfb
-
-## 许可证
-
-本项目基于 MIT 许可证开源。
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-## 免责声明
-
-本项目仅用于技术学习和研究目的。微信是腾讯公司的注册商标，相关版权归腾讯公司所有。
