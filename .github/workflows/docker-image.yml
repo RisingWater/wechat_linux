@@ -27,5 +27,5 @@ jobs:
     - name: Push Docker image
       if: github.event_name != 'pull_request'
       run: |
-        docker push ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:latest
-        docker push ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:${{ github.sha }}
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/wechat-linux:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/wechat-linux:${{ github.sha }}
