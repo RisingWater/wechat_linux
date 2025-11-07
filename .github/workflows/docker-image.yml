@@ -1,0 +1,31 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Log in to Docker Hub
+      run: |
+        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+    - name: Build the Docker image
+      run: |
+        docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:latest
+        docker tag ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:latest ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:${{ github.sha }}
+
+    - name: Push Docker image
+      if: github.event_name != 'pull_request'
+      run: |
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/your-repo-name:${{ github.sha }}
