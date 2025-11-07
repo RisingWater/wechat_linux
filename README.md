@@ -5,9 +5,12 @@
 
 ## 快速开始
 
-### 前提条件
+直接从仓库拉取
+```hash
+docker pull risingwater/wechat-linux:latest
+```
 
-- 安装Docker
+## 镜像构建
 
 ### 克隆项目
 
@@ -22,7 +25,7 @@ cd wechat_linux
 docker build ./ -t wechat-linux:latest
 ```
 
-### 运行容器
+## 运行容器
 
 ```bash
 docker run -d -it -p 6080:6080 \
