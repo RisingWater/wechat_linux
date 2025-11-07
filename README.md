@@ -1,7 +1,7 @@
 # WeChat Linux Docker
 
-基于 Docker 的微信 Linux 版容器化解决方案，使用 noVNC 通过浏览器访问微信界面。
-后续会基于此Docker可以开发微信机器人、微信聊天记录备份等功能。
+- 基于 Docker 的微信 Linux 版容器化解决方案，使用 noVNC 通过浏览器访问微信界面。
+- 后续会基于此Docker可以开发微信机器人、微信聊天记录备份等功能。
 
 ## 快速开始
 
